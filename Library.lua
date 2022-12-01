@@ -86,7 +86,6 @@ function Library:CreateLabel(Properties, IsHud)
     local _Instance = Library:Create('TextLabel', {
         BackgroundTransparency = 1;
         Font = Enum.Font.Code;
-        TextColor3 = Library.FontColor;
         TextSize = 16;
         TextStrokeTransparency = 0;
     });
@@ -1011,7 +1010,7 @@ do
         });
     end;
 
-    function Funcs:AddLabel(Text, DoesWrap)
+    function Funcs:AddLabel(Text, DoesWrap, FontColor)
         local Label = {};
 
         local Groupbox = self;
@@ -1022,6 +1021,7 @@ do
             TextSize = 14;
             Text = Text;
             TextWrapped = DoesWrap or false,
+            TextColor3 = FontColor or Library.FontColor,
             RichText = true,
             TextXAlignment = Enum.TextXAlignment.Left;
             ZIndex = 5;
