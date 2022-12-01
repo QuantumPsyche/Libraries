@@ -1028,7 +1028,7 @@ do
             Parent = Container;
         });
         
-        TextLabel.TextColor3 = Color or Library.Font
+        TextLabel.TextColor3 = Color or Library.FontColor
 
         if DoesWrap then
             local Y = select(2, Library:GetTextBounds(Text, Enum.Font.Code, 14, Vector2.new(TextLabel.AbsoluteSize.X, math.huge)))
