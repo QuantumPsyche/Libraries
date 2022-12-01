@@ -1021,9 +1021,6 @@ do
             TextSize = 14;
             Text = Text;
             TextWrapped = DoesWrap or false,
-            -- Marker
-            -- TextColor3 = Color or Library.FontColor,
-            TextColor3 = Color3.fromRGB(255, 0, 255);
             RichText = true,
             TextXAlignment = Enum.TextXAlignment.Left;
             ZIndex = 5;
