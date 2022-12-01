@@ -1022,13 +1022,12 @@ do
             TextSize = 14;
             Text = Text;
             TextWrapped = DoesWrap or false,
+            TextColor3 = Color or Library.FontColor,
             RichText = true,
             TextXAlignment = Enum.TextXAlignment.Left;
             ZIndex = 5;
             Parent = Container;
         });
-        
-        TextLabel.TextColor3 = Color or Library.FontColor
 
         if DoesWrap then
             local Y = select(2, Library:GetTextBounds(Text, Enum.Font.Code, 14, Vector2.new(TextLabel.AbsoluteSize.X, math.huge)))
@@ -1048,6 +1047,7 @@ do
 
         function Label:SetText(Text)
             TextLabel.Text = Text
+            TextLabel.Color = Color or Library.FontColor
 
             if DoesWrap then
                 local Y = select(2, Library:GetTextBounds(Text, Enum.Font.Code, 14, Vector2.new(TextLabel.AbsoluteSize.X, math.huge)))
