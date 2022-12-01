@@ -5,7 +5,7 @@ local ThemeManager = {} do
 
 	ThemeManager.Library = nil
 	ThemeManager.BuiltInThemes = {
-		['Default'] 		= { 1, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"1c1c1c","AccentColor":"0055ff","BackgroundColor":"141414","OutlineColor":"323232"}') },
+		['Default'] 		= { 1, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"1c1c1c","AccentColor":"8400ff","BackgroundColor":"141414","OutlineColor":"323232"}') },
 		['Green'] 			= { 2, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"141414","AccentColor":"00ff8b","BackgroundColor":"1c1c1c","OutlineColor":"3c3c3c"}') },
 		['Jester'] 			= { 3, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"242424","AccentColor":"db4467","BackgroundColor":"1c1c1c","OutlineColor":"373737"}') },
 		['Mint'] 			= { 4, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"242424","AccentColor":"3db488","BackgroundColor":"1c1c1c","OutlineColor":"373737"}') },
@@ -88,7 +88,7 @@ local ThemeManager = {} do
 		table.sort(ThemesArray, function(a, b) return self.BuiltInThemes[a][1] < self.BuiltInThemes[b][1] end)
 
 		groupbox:AddDivider()
-		groupbox:AddDropdown('ThemeManager_ThemeList', { Text = 'Theme list', Values = ThemesArray, Default = 1 })
+		groupbox:AddDropdown('ThemeManager_ThemeList', { Text = 'Theme List', Values = ThemesArray, Default = 1 })
 
 		groupbox:AddButton('Set as default', function()
 			self:SaveDefault(Options.ThemeManager_ThemeList.Value)
@@ -100,14 +100,14 @@ local ThemeManager = {} do
 		end)
 
 		groupbox:AddDivider()
-		groupbox:AddDropdown('ThemeManager_CustomThemeList', { Text = 'Custom themes', Values = self:ReloadCustomThemes(), AllowNull = true, Default = 1 })
-		groupbox:AddInput('ThemeManager_CustomThemeName', { Text = 'Custom theme name' })
+		groupbox:AddDropdown('ThemeManager_CustomThemeList', { Text = 'Custom Themes', Values = self:ReloadCustomThemes(), AllowNull = true, Default = 1 })
+		groupbox:AddInput('ThemeManager_CustomThemeName', { Text = 'Custom Theme Name' })
 
-		groupbox:AddButton('Load custom theme', function() 
+		groupbox:AddButton('Load Custom Theme', function() 
 			self:ApplyTheme(Options.ThemeManager_CustomThemeList.Value) 
 		end)
 
-		groupbox:AddButton('Save custom theme', function() 
+		groupbox:AddButton('Save Custom Theme', function() 
 			self:SaveCustomTheme(Options.ThemeManager_CustomThemeName.Value)
 
 			Options.ThemeManager_CustomThemeList.Values = self:ReloadCustomThemes()
@@ -115,13 +115,13 @@ local ThemeManager = {} do
 			Options.ThemeManager_CustomThemeList:SetValue(nil)
 		end)
 
-		groupbox:AddButton('Refresh list', function()
+		groupbox:AddButton('Refresh List', function()
 			Options.ThemeManager_CustomThemeList.Values = self:ReloadCustomThemes()
 			Options.ThemeManager_CustomThemeList:SetValues()
 			Options.ThemeManager_CustomThemeList:SetValue(nil)
 		end)
 
-		groupbox:AddButton('Set as default', function()
+		groupbox:AddButton('Set as Default', function()
 			if Options.ThemeManager_CustomThemeList.Value ~= nil and Options.ThemeManager_CustomThemeList.Value ~= '' then
 				self:SaveDefault(Options.ThemeManager_CustomThemeList.Value)
 				self.Library:Notify(string.format('Set default theme to %q', Options.ThemeManager_CustomThemeList.Value))
