@@ -7,4 +7,4 @@ An edited version of Linoria that was originally created by Linora and now maint
 - Centered and upscaled groupbox names
 - Better multi-select support
 - Color support for lables
-- Label updates or variable change
+- Label updates for variable changes
