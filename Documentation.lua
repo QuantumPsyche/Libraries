@@ -15,4 +15,8 @@ local Window = Library:CreateWindow({
 local MainTab = Window:AddTab("Home")
 local MainGroup = MainTab:AddLeftGroupbox("Main")
 
-MainGroup:AddLabel("LabelName", false, fromRGB(0, 255, 0)) -- First argument is the label text, second is true/false if the text should wrap, third is the color.
+MainGroup:AddLabel(
+    "LabelName", -- The text that will show up on the label
+    false, -- determines if the text should wrap (true) or not (false) [Optional]
+    fromRGB(0, 255, 0) -- The color of the text [Optional]
+)
