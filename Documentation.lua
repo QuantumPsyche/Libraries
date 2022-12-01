@@ -1,4 +1,5 @@
 -- The only new things I have added current as are follows: AddLabel color functionaility
+-- Original Documentation: https://github.com/wally-rblx/LinoriaLib/blob/main/Example.lua
 
 local Repository = "https://raw.githubusercontent.com/QuantumPsyche/Libraries/main/"
 
