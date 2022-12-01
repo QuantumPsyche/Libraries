@@ -1021,13 +1021,14 @@ do
             Size = UDim2.new(1, -4, 0, 15);
             TextSize = 14;
             Text = Text;
-            TextColor3 = Color or Library.FontColor,
             TextWrapped = DoesWrap or false,
             RichText = true,
             TextXAlignment = Enum.TextXAlignment.Left;
             ZIndex = 5;
             Parent = Container;
         });
+        
+        TextLabel.TextColor3 = Color or Library.Font
 
         if DoesWrap then
             local Y = select(2, Library:GetTextBounds(Text, Enum.Font.Code, 14, Vector2.new(TextLabel.AbsoluteSize.X, math.huge)))
