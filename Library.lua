@@ -1010,7 +1010,7 @@ do
         });
     end;
 
-    function Funcs:AddLabel(Text, DoesWrap, FontColor)
+    function Funcs:AddLabel(Text, DoesWrap, Color)
         local Label = {};
 
         local Groupbox = self;
@@ -1021,7 +1021,9 @@ do
             TextSize = 14;
             Text = Text;
             TextWrapped = DoesWrap or false,
-            TextColor3 = FontColor or Library.FontColor,
+            -- Marker
+            -- TextColor3 = Color or Library.FontColor,
+            TextColor3 = Color3.fromRGB(10,38,83);
             RichText = true,
             TextXAlignment = Enum.TextXAlignment.Left;
             ZIndex = 5;
